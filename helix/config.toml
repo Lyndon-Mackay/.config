@@ -1,0 +1,50 @@
+theme = "papercolor-dark"
+
+[editor]
+line-number = "relative"
+color-modes = true
+popup-border = "all"
+
+[editor.cursor-shape]
+insert = "underline"
+select = "hidden"
+
+[editor.indent-guides]
+render = true
+
+
+[keys.normal]
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+C-r = ":run-shell-command cargo run"
+"j" = "move_visual_line_up"
+"k" = "move_visual_line_down"
+
+[keys.insert]
+C-s = ":write"
+C-q = ":quit"
+
+[keys.normal.g]
+"j" = "move_line_up"
+"k" = "move_line_down"
+
+[keys.select]
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
+"j" = "extend_line_up"
+"k" = "extend_line_down"
+
+[editor.statusline]
+center = [
+  "diagnostics",
+  "selections",
+  "separator",
+  "register",
+  "position",
+  "separator",
+  "total-line-numbers",
+  "separator",
+  "position-percentage",
+  "file-encoding",
+]
+right = []

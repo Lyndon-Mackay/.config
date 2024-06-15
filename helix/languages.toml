@@ -1,0 +1,39 @@
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+# formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+formatter = { command = "dprint", args = ["fmt", "--stdin", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "vue"
+scope = "source.vue"
+injection-regex = "vue"
+file-types = ["vue"]
+language-servers = ["volar", "eslint"]
+formatter = { command = 'prettier', args = ["--parser", "vue"] }
+roots = ["package.json", "vue.config.js", ".prettierrc.json"]
+
+[[language-server.typescript-language-server.config.plugins]]
+name = "@vue/typescript-plugin"
+location = "/home/lyndonm/.local/share/nvm/v22.2.0/bin/vue-language-server"
+languages = ["vue"]
+
+[language-server.volar]
+command = "vue-language-server"
+args = ["--stdio"]
+
+[language-server.volar.config]
+typescript = { tsdk = "./node_modules/typescript/lib" }
+
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+auto-format = true
